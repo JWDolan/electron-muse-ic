@@ -1,0 +1,7 @@
+<% @tracks.each do |track| %>
+  <%= track.name %><br />
+  <%= track.artist %> <br />
+  <a href="/tracks/<%=track.id%>/edit">Edit</a>
+  <br />
+  <br />
+<% end %>

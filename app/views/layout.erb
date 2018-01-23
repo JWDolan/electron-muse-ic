@@ -5,13 +5,28 @@
       <title>Electron-muse-ic</title>
    </head>
    <body>
+      <nav>
+        <% if logged_in? %>
 
-   <div class="container">
-   
+          <a href="/logout"> Log Out </a>
+          <p>Welcome, <%=current_user.username %></p>
 
-      <%= yield %>
+        <% else %>
+          <a href="/signup">Sign Up</a>
+          <a href="/login"> Log In </a>
+        <%end %>
 
-   </div>
+      </nav>
+      <div class="container">
+
+         <% if !@error_message.nil? %>
+            <div class="alert alert-warning">
+               <%= @error_message %>
+            </div>
+         <% end %>
+
+         <%= yield %>
+      </div>
 
    </body>
 </html>
